@@ -2552,3 +2552,125 @@ int main()
        cout<<"not an anagram";
 }
 
+25)Longest Word in a Sentence
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s,word="",longest="";
+    getline(cin,s);
+
+    for(int i=0;i<=s.length();i++)
+    {
+        if(s[i]==' ' || s[i]=='\0')
+        {
+            if(word.length()>longest.length())
+                longest=word;
+
+            word="";
+        }
+        else
+            word+=s[i];
+    }
+
+    cout<<longest;
+}
+
+26)Shortest Word in a Sentence
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s,word="",small="";
+    getline(cin,s);
+
+    bool first=true;
+
+    for(int i=0;i<=s.length();i++)
+    {
+        if(s[i]==' ' || s[i]=='\0')
+        {
+            if(first || word.length()<small.length())
+            {
+                small=word;
+                first=false;
+            }
+            word="";
+        }
+        else
+            word+=s[i];
+    }
+
+    cout<<small;
+}
+
+27)Check Whether Two Strings are Rotations
+i/p: ABCD
+     CDAB
+o/p: Rotation
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s1,s2;
+    getline(cin,s1);
+    getline(cin,s2);
+
+    string temp=s1+s1;
+
+    if(temp.find(s2)!=string::npos)
+        cout<<"Rotation";
+    else
+        cout<<"Not Rotation";
+}
+
+28)Replace Spaces with Hyphen
+i/p: hello world
+o/p: hello-world
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s;
+    getline(cin,s);
+
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]==' ')
+            s[i]='-';
+    }
+
+    cout<<s;
+}
+
+30)Capitalize First Letter of Every Word
+i/p: hello world welcome
+o/p: Hello World Welcome
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s;
+    getline(cin,s);
+
+    if(s[0]>='a' && s[0]<='z')
+        s[0]-=32;
+
+    for(int i=1;i<s.length();i++)
+    {
+        if(s[i-1]==' ' && s[i]>='a' && s[i]<='z')
+            s[i]-=32;
+    }
+
+    cout<<s;
+}
